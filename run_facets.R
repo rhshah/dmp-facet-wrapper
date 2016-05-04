@@ -98,7 +98,7 @@ if (!interactive()){
   dat = preProcSample(
     FILE,
     snp.nbhd = 250,
-    cval = 300,
+    cval = 100,
     chromlevels = chromLevels,
     ndepth = 35,
     hetscale = TRUE,
@@ -157,7 +157,7 @@ if (!interactive()){
       "\n",
       file = ff,
       append = T)
-  cat("# cval =", "150", "\n", file = ff, append = T)
+  cat("# cval =", "100", "\n", file = ff, append = T)
   cat("# min.nhet =", "15", "\n", file = ff, append = T)
   cat("# Project =",
       projectName,
