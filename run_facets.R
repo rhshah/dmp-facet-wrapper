@@ -51,8 +51,8 @@ if (!interactive())
     })
   rm(junk)
   currwd <- getwd()
-  path = LocationOfThisScript()
-  source(paste(path, funcs.R, sep = "/"))
+  path = LocationOfThisScript
+  source(paste(path, "funcs.R", sep = "/"))
   cc <- function(...) {
     paste(..., sep = '_')
   }
