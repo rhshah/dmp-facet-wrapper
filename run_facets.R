@@ -1,4 +1,4 @@
-s#!/usr/bin/env Rscript
+#!/usr/bin/env Rscript
 
 ##########################################################################################
 # MSKCC DMP
@@ -43,7 +43,7 @@ LocationOfThisScript = function()
 ### Run analysis
 ####################################################
 ####################################################
-if (!interactive()) {
+if (!interactive()) 
   pkgs = c('argparse', 'facets')
   junk <-
     lapply(pkgs, function(p) {
