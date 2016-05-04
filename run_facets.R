@@ -98,7 +98,7 @@ if (!interactive()){
   dat = preProcSample(
     FILE,
     snp.nbhd = 250,
-    cval = 100,
+    cval = 300,
     chromlevels = chromLevels,
     ndepth = 35,
     hetscale = TRUE,
@@ -120,9 +120,9 @@ if (!interactive()){
   plotSample(
     out,
     chromlevels = chromLevels,
-    #emfit = fit,
-    #plot.type = "em",
-    #sname = paste(POOL, tumorName, normalName, sep = "_")
+    emfit = fit,
+    plot.type = "em",
+    sname = paste(POOL, tumorName, normalName, sep = "_")
   )
   #text(-.08,-.08,paste(projectName,"[",tumorName,normalName,"]","cval =150"),xpd=T,pos=4)
   dev.off()
