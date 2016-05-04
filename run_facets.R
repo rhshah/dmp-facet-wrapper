@@ -59,9 +59,15 @@ if (!interactive())
   ### Parse input arguments
   parser = ArgumentParser()
   parser$add_argument("-c", "--counts_file", nargs = 1, help = "Paired Counts File")
+  parser$add_argument("-p", "--project_name", nargs = 1, default="facetProject", help = "Project Name")
+  parser$add_argument("-t", "--tumor_name", nargs = 1, default="Tumor", help = "Tumor Sample Name")
+  parser$add_argument("-n", "--normal_name", nargs = 1, default = "Normal", help = "Normal Sample Name")
   args = parser$parse_args()
   ### Get File, Base and Pool Information
   FILE = args$counts_file
+  tumorName = args$tumor_name
+  normalName = args$normal_name
+  projectName = args$project_name
   BASE = basename(FILE)
   POOL = basename(dirname(FILE))
   ### Print Facet Version Information
@@ -73,11 +79,11 @@ if (!interactive())
   version = buildData["Version"]
   cat("\n")
   ### Get variables for facet input
-  BASE = gsub("countsMerged____", "", gsub(".dat.*", "", BASE))
-  sampleNames = gsub(".*recal_", "", strsplit(BASE, "____")[[1]])
-  tumorName = sampleNames[1]
-  normalName = sampleNames[2]
-  projectName = paste("MSK-IMPACT", POOL, sep = "-")
+  BASE = gsub(".dat.*", "", BASE)
+  #sampleNames = gsub(".*recal_", "", strsplit(BASE, "____")[[1]])
+  #tumorName = sampleNames[1]
+  #normalName = sampleNames[2]
+  #projectName = paste("MSK-IMPACT", POOL, sep = "-")
   TAG = paste("facets",
               projectName,
               tumorName,
@@ -92,7 +98,7 @@ if (!interactive())
   dat = preProcSample(
     FILE,
     snp.nbhd = 250,
-    cval = 25,
+    cval = 100,
     chromlevels = chromLevels,
     ndepth = 35,
     hetscale = TRUE,
@@ -100,7 +106,7 @@ if (!interactive())
     het.thresh = 0.25
   )
   out = procSample(dat,
-                   cval = 150,
+                   cval = 100,
                    min.nhet = 15,
                    dipLogR = NULL)
   fit = emcncf(out, min.nhet = 15)
