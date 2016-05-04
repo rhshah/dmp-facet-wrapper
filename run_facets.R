@@ -43,7 +43,7 @@ LocationOfThisScript = function()
 ### Run analysis
 ####################################################
 ####################################################
-if (!interactive()) 
+if (!interactive()){
   pkgs = c('argparse', 'facets')
   junk <-
     lapply(pkgs, function(p) {
@@ -111,6 +111,7 @@ if (!interactive())
                    dipLogR = NULL)
   fit = emcncf(out, min.nhet = 15)
   
+  
   pdf(
     file = cc(TAG, "BiSeg.pdf"),
     height = 10,
@@ -119,13 +120,20 @@ if (!interactive())
   plotSample(
     out,
     chromlevels = chromLevels,
-    emfit = fit,
-    plot.type = "em",
-    sname = paste(POOL, tumorName, normalName, sep = "_")
+    #emfit = fit,
+    #plot.type = "em",
+    #sname = paste(POOL, tumorName, normalName, sep = "_")
   )
   #text(-.08,-.08,paste(projectName,"[",tumorName,normalName,"]","cval =150"),xpd=T,pos=4)
   dev.off()
   
+  pdf(
+    file = cc(TAG, "CNCF.pdf"),
+    height = 10,
+    width = 8
+  )
+  plotSampleCNCF(out,fit)
+  dev.off()
   out$IGV = formatSegmentOutput(out, TAG1)
   save(out,
        fit,
