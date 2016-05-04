@@ -11,7 +11,7 @@ dmp-facet-wrapper: Wrapper to Run Facet
 Usage
 =====
 
-``Rscript dmp-facet-wrapper.R -c <count.file.gz>``
+``Rscript run_facets.R -c <count.file.gz>``
    
 
 
