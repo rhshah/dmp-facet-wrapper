@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+s#!/usr/bin/env Rscript
 
 ##########################################################################################
 # MSKCC DMP
@@ -44,7 +44,7 @@ LocationOfThisScript = function()
 ####################################################
 ####################################################
 if (!interactive()) {
-  pkgs = c('argparse', 'facet')
+  pkgs = c('argparse', 'facets')
   junk <-
     lapply(pkgs, function(p) {
       suppressPackageStartupMessages(require(p, character.only = T))
