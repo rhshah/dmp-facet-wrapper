@@ -126,14 +126,6 @@ if (!interactive()){
   )
   #text(-.08,-.08,paste(projectName,"[",tumorName,normalName,"]","cval =150"),xpd=T,pos=4)
   dev.off()
-  
-  pdf(
-    file = cc(TAG, "CNCF.pdf"),
-    height = 10,
-    width = 8
-  )
-  plotSampleCNCF(out,fit)
-  dev.off()
   out$IGV = formatSegmentOutput(out, TAG1)
   save(out,
        fit,
