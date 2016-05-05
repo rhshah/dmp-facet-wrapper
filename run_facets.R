@@ -89,7 +89,7 @@ if (!interactive()){
               tumorName,
               normalName,
               "cval",
-              "150",
+              "100",
               sep = "__")
   TAG1 = cc(projectName, tumorName, normalName)
   chromLevels = c(1:22, "X")
